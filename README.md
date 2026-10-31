@@ -1,6 +1,8 @@
 # InterviewIQ 🚀
 > **AI-Powered Platform for Smarter Interview Preparation and Recruitment**
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FKapilJangra28%2Finterview)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/KapilJangra28/interview)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-18.x-61dafb.svg)](https://react.dev/)
@@ -87,7 +89,7 @@ interviewIQ/
 
 1. Sign in to [Render](https://render.com/).
 2. Click **New +** > **Blueprint** (or **Web Service**).
-3. Connect your GitHub repository: `https://github.com/KapilJangra28/InterviewIQ`.
+3. Connect your GitHub repository: `https://github.com/KapilJangra28/interview`.
 4. Render automatically detects `render.yaml` with the following pre-configured settings:
    * **Root / Build Command**: `cd backend && npm install`
    * **Start Command**: `cd backend && npm start`
@@ -103,7 +105,7 @@ interviewIQ/
 ### 2. Deploy Frontend to Vercel
 
 1. Sign in to [Vercel](https://vercel.com/).
-2. Click **Add New...** > **Project** and import `KapilJangra28/InterviewIQ`.
+2. Click **Add New...** > **Project** and import `KapilJangra28/interview`.
 3. Configure Project Settings:
    * **Framework Preset**: Vite
    * **Root Directory**: `./` (or `frontend`)
@@ -125,8 +127,8 @@ interviewIQ/
 
 Clone the repository:
 ```bash
-git clone https://github.com/KapilJangra28/InterviewIQ.git
-cd InterviewIQ
+git clone https://github.com/KapilJangra28/interview.git
+cd interview
 ```
 
 ### 3. Running the Application
