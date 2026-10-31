@@ -36,6 +36,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
   const studentLinks = [
     { label: 'Dashboard', path: '/student/dashboard', icon: <LayoutDashboard className="w-4 h-4" /> },
     { label: 'AI Mock Interview', path: '/student/mock-interview', icon: <Mic className="w-4 h-4" />, highlight: true },
+    { label: 'Course Tracks & Pricing', path: '/student/pricing', icon: <Sparkles className="w-4 h-4 text-emerald-400" />, badge: '5 Tracks' },
     { label: 'Interview History & Reports', path: '/student/history', icon: <FileText className="w-4 h-4" /> },
     { label: 'AI Learning Roadmap', path: '/student/roadmap', icon: <Compass className="w-4 h-4" /> },
     { label: 'Explore Jobs', path: '/student/jobs', icon: <Briefcase className="w-4 h-4" /> },

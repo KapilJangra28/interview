@@ -136,6 +136,27 @@
       animation: voice-pulse 2s ease-in-out infinite;
     }
 
+    /* Voice Equalizer Soundwave Animation */
+    @keyframes eqBounce {
+      0%, 100% { height: 6px; }
+      50% { height: 26px; }
+    }
+    .wave-bar {
+      width: 4px;
+      height: 6px;
+      background: linear-gradient(180deg, #38BDF8 0%, #6655D9 100%);
+      border-radius: 9999px;
+      transition: height 0.15s ease;
+    }
+    .wave-active .wave-bar:nth-child(1) { animation: eqBounce 0.75s ease-in-out infinite 0.1s; }
+    .wave-active .wave-bar:nth-child(2) { animation: eqBounce 0.55s ease-in-out infinite 0.25s; }
+    .wave-active .wave-bar:nth-child(3) { animation: eqBounce 0.95s ease-in-out infinite 0.15s; }
+    .wave-active .wave-bar:nth-child(4) { animation: eqBounce 0.65s ease-in-out infinite 0.35s; }
+    .wave-active .wave-bar:nth-child(5) { animation: eqBounce 0.85s ease-in-out infinite 0.05s; }
+    .wave-active .wave-bar:nth-child(6) { animation: eqBounce 0.50s ease-in-out infinite 0.30s; }
+    .wave-active .wave-bar:nth-child(7) { animation: eqBounce 0.90s ease-in-out infinite 0.20s; }
+    .wave-active .wave-bar:nth-child(8) { animation: eqBounce 0.70s ease-in-out infinite 0.12s; }
+
     /* Toast Notification */
     #toast-container {
       position: fixed;
@@ -762,6 +783,9 @@
         <button type="button" onclick="window.setStudentSection('profile')" id="stu-tab-profile" class="stu-nav-tab px-4 py-2 rounded-xl text-xs font-semibold text-[#94A3B8] hover:text-white transition-all cursor-pointer">
           Personal Profile
         </button>
+        <button type="button" onclick="window.setStudentSection('pricing')" id="stu-tab-pricing" class="stu-nav-tab px-4 py-2 rounded-xl text-xs font-semibold text-[#94A3B8] hover:text-white transition-all cursor-pointer flex items-center gap-1.5">
+          <span>💎 Course Tracks & Pricing</span>
+        </button>
       </div>
 
       <!-- SECTION A: Overview & Start Mock Interview -->
@@ -795,6 +819,30 @@
               Start HR Mock
             </button>
           </div>
+        </div>
+
+        <!-- Active Enrolled Career Track & Pricing Tier -->
+        <div class="glass-card rounded-3xl p-5 border border-[#6655D9]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-[#6655D9]/20 text-[#A99AF5] flex items-center justify-center border border-[#6655D9]/30 text-2xl">
+              ⚡
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <h4 id="overview-enrolled-track-name" class="text-sm font-bold text-white">Full-Stack & Cloud Architecture Track</h4>
+                <span id="overview-enrolled-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  ● Enrolled & Active ($59/mo)
+                </span>
+              </div>
+              <p class="text-xs text-[#94A3B8] mt-0.5">
+                50+ specialized curriculum mocks, system design sandboxes & AI voice modulation suite included.
+              </p>
+            </div>
+          </div>
+          <button type="button" onclick="window.setStudentSection('pricing')" class="px-4 py-2 text-xs font-bold rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/15 cursor-pointer flex items-center gap-1.5 transition-colors shrink-0">
+            <span>View All Tracks & Pricing</span>
+            <span>→</span>
+          </button>
         </div>
 
         <!-- 4 Metric Cards -->
@@ -1116,6 +1164,105 @@
             </div>
           </form>
         </div>
+      </div>
+
+      <!-- SECTION I: Course Tracks & Revenue Pricing -->
+      <div id="stu-sec-pricing" class="stu-section hidden space-y-6">
+        
+        <!-- Header Banner -->
+        <div class="rounded-3xl bg-gradient-to-r from-[#1E1B4B] via-[#161B2E] to-[#0A0C14] border border-[#6655D9]/40 p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-xl">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-[#6655D9]/30 text-[#A99AF5] border border-[#6655D9]/50">
+              💎 Career Tracks & Revenue Plans
+            </span>
+            <h3 class="text-xl sm:text-2xl font-black text-white">
+              Accelerate Your Placement Readiness
+            </h3>
+            <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+              Every course track includes dedicated non-repeating question banks, calibrated AI voice modulation personas, system design sandboxes, and verified FAANG rubric scoring.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 p-1.5 rounded-2xl bg-[#0A0C14] border border-white/10 shrink-0">
+            <div class="px-3 py-1 text-center">
+              <span class="text-[10px] text-[#94A3B8] uppercase tracking-wider font-semibold block">Placement Rate</span>
+              <strong class="text-emerald-400 text-sm font-black">94.8%</strong>
+            </div>
+            <div class="w-[1px] h-8 bg-white/10"></div>
+            <div class="px-3 py-1 text-center">
+              <span class="text-[10px] text-[#94A3B8] uppercase tracking-wider font-semibold block">Average Salary Hike</span>
+              <strong class="text-[#38BDF8] text-sm font-black">+68%</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Currency & Billing Frequency Controller -->
+        <div class="glass-card rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <!-- Currency Toggle -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-[#94A3B8] uppercase tracking-wider">Currency:</span>
+            <div class="flex items-center p-1 rounded-xl bg-[#0A0C14] border border-white/10">
+              <button 
+                type="button" 
+                id="btn-curr-usd" 
+                onclick="window.setPricingCurrency('USD')" 
+                class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#6655D9] text-white transition-all cursor-pointer shadow-button"
+              >
+                USD ($)
+              </button>
+              <button 
+                type="button" 
+                id="btn-curr-inr" 
+                onclick="window.setPricingCurrency('INR')" 
+                class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#94A3B8] hover:text-white transition-all cursor-pointer"
+              >
+                INR (₹)
+              </button>
+            </div>
+          </div>
+
+          <!-- Billing Interval Toggle -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-[#94A3B8] uppercase tracking-wider">Billing Frequency:</span>
+            <div class="flex items-center p-1 rounded-xl bg-[#0A0C14] border border-white/10">
+              <button 
+                type="button" 
+                id="btn-billing-monthly" 
+                onclick="window.setPricingBilling('monthly')" 
+                class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#6655D9] text-white transition-all cursor-pointer shadow-button"
+              >
+                Monthly
+              </button>
+              <button 
+                type="button" 
+                id="btn-billing-annual" 
+                onclick="window.setPricingBilling('annual')" 
+                class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#94A3B8] hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
+              >
+                <span>Annual</span>
+                <span class="px-1.5 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400 font-extrabold border border-emerald-500/30">Save ~30%</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Course Tracks Grid Container (Populated dynamically) -->
+        <div id="course-tracks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically rendered by renderCoursePricingCards() -->
+        </div>
+
+        <!-- Assurance & Guarantee Banner -->
+        <div class="glass-card rounded-3xl p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-[#A99AF5] flex items-center justify-center text-lg">
+              🛡️
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">InterviewIQ Placement Protection & Value Guarantee</h4>
+              <p class="text-xs text-[#94A3B8]">All enrolled candidate accounts include full voice modulation access, 7-day satisfaction guarantee, and priority recruiter verification.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -1541,16 +1688,161 @@
           </div>
         </div>
 
+        {/* Active Track Badge & Timer */}
         <div class="flex items-center gap-3">
+          <div id="mock-room-track-badge" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-500/15 border border-[#6655D9]/40 text-xs font-semibold">
+            <span class="text-[#A99AF5] font-bold">📚 Track:</span>
+            <span id="mock-track-name" class="text-white">Full-Stack Cloud</span>
+            <span id="mock-track-price" class="text-emerald-400 font-mono font-bold">($59/mo)</span>
+          </div>
+
           <span id="room-timer" class="px-3 py-1 rounded-lg bg-[#0A0C14] text-xs font-mono font-bold text-[#38BDF8] border border-white/10">
             15:00
           </span>
-          <button type="button" onclick="window.speakQuestion()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer" title="Read Question Aloud (Voice)">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            </svg>
+        </div>
+      </div>
+
+      <!-- AI Voice Modulation & Soundwave Console -->
+      <div class="glass-card rounded-3xl p-5 border border-[#6655D9]/40 space-y-4">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-white/10">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#6655D9] to-[#38BDF8] flex items-center justify-center text-white text-base">
+              🎙️
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-white">AI Voice Modulation Console</span>
+                <span id="voice-status-pill" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/10 text-gray-400">
+                  Ready to Speak
+                </span>
+              </div>
+              <p id="voice-active-desc" class="text-[11px] text-[#94A3B8]">
+                Persona: FAANG Architect • Pitch: 0.85x • Speed: 1.05x
+              </p>
+            </div>
+          </div>
+
+          <!-- Dynamic Audio Equalizer Waveform Indicator -->
+          <div id="voice-wave-container" class="flex items-center gap-1 h-7 px-3 py-1 rounded-xl bg-[#0A0C14] border border-white/10">
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+          </div>
+        </div>
+
+        <!-- 5 Voice Persona Selection Tabs -->
+        <div class="space-y-1.5">
+          <span class="text-[10px] font-bold text-[#A99AF5] uppercase tracking-wider block">
+            Select Interviewer Voice Persona:
+          </span>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            <button type="button" onclick="window.setVoicePersona('faang')" id="voice-pill-faang" class="p-2 rounded-xl text-left text-xs font-bold transition-all cursor-pointer bg-[#6655D9] text-white shadow-button">
+              <span class="block text-xs">👔 FAANG Lead</span>
+              <span class="block text-[9px] opacity-75 font-normal">Deep & Authoritative</span>
+            </button>
+            <button type="button" onclick="window.setVoicePersona('startup')" id="voice-pill-startup" class="p-2 rounded-xl text-left text-xs font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+              <span class="block text-xs">🚀 Startup CTO</span>
+              <span class="block text-[9px] opacity-75 font-normal">Fast & Dynamic</span>
+            </button>
+            <button type="button" onclick="window.setVoicePersona('hr')" id="voice-pill-hr" class="p-2 rounded-xl text-left text-xs font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+              <span class="block text-xs">🌸 HR Director</span>
+              <span class="block text-[9px] opacity-75 font-normal">Warm & Articulate</span>
+            </button>
+            <button type="button" onclick="window.setVoicePersona('griller')" id="voice-pill-griller" class="p-2 rounded-xl text-left text-xs font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+              <span class="block text-xs">⚡ Strict Griller</span>
+              <span class="block text-[9px] opacity-75 font-normal">Low Pitch & Sharp</span>
+            </button>
+            <button type="button" onclick="window.setVoicePersona('neutral')" id="voice-pill-neutral" class="p-2 rounded-xl text-left text-xs font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
+              <span class="block text-xs">🤖 AI Neutral</span>
+              <span class="block text-[9px] opacity-75 font-normal">Studio Synth</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Voice Action Buttons Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="window.speakQuestion()" class="px-5 py-2.5 rounded-xl bg-[#6655D9] hover:bg-[#5542C6] text-white text-xs font-bold transition-all shadow-button cursor-pointer flex items-center gap-2 active:scale-95">
+              <span>🔊 Read Question Aloud</span>
+            </button>
+            <button type="button" id="btn-stop-voice" onclick="window.stopSpeaking()" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-rose-500/20 text-gray-300 hover:text-rose-300 border border-white/10 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5">
+              <span>⏹️ Stop Voice</span>
+            </button>
+            <button type="button" onclick="window.testVoiceModulation()" class="px-3 py-2 text-xs font-semibold text-[#38BDF8] hover:underline cursor-pointer">
+              Test Voice Audio
+            </button>
+          </div>
+
+          <button type="button" onclick="window.toggleModulationDrawer()" class="text-xs font-semibold text-[#A99AF5] hover:text-white flex items-center gap-1 cursor-pointer">
+            <span>🎛️ Modulation Sliders</span>
+            <span id="drawer-toggle-arrow">▼</span>
           </button>
         </div>
+
+        <!-- Collapsible Fine-Tuning Modulation Drawer -->
+        <div id="voice-modulation-drawer" class="hidden pt-3 border-t border-white/10 space-y-4 text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="text-[#94A3B8]">Pitch Modulation:</span>
+                <span id="val-pitch-display" class="font-mono font-bold text-[#38BDF8]">0.85x</span>
+              </div>
+              <input type="range" id="slider-pitch" min="0.5" max="1.8" step="0.05" value="0.85" oninput="window.updateVoicePitch(this.value)" class="w-full accent-[#6655D9] cursor-pointer h-1.5 bg-white/10 rounded-lg">
+              <div class="flex justify-between text-[9px] text-gray-500 font-mono">
+                <span>0.5x (Baritone)</span>
+                <span>1.8x (Treble)</span>
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="text-[#94A3B8]">Speech Speed / Rate:</span>
+                <span id="val-rate-display" class="font-mono font-bold text-emerald-400">1.05x</span>
+              </div>
+              <input type="range" id="slider-rate" min="0.6" max="1.6" step="0.05" value="1.05" oninput="window.updateVoiceRate(this.value)" class="w-full accent-emerald-500 cursor-pointer h-1.5 bg-white/10 rounded-lg">
+              <div class="flex justify-between text-[9px] text-gray-500 font-mono">
+                <span>0.6x (Deliberate)</span>
+                <span>1.6x (Rapid)</span>
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="text-[#94A3B8]">Volume:</span>
+                <span id="val-vol-display" class="font-mono font-bold text-purple-300">100%</span>
+              </div>
+              <input type="range" id="slider-vol" min="0" max="1" step="0.05" value="1.0" oninput="window.updateVoiceVolume(this.value)" class="w-full accent-purple-500 cursor-pointer h-1.5 bg-white/10 rounded-lg">
+              <div class="flex justify-between text-[9px] text-gray-500 font-mono">
+                <span>Mute</span>
+                <span>Max</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <div class="space-y-1">
+              <span class="text-[11px] text-[#94A3B8] block">Browser / OS Speech Synthesis Voice:</span>
+              <select id="voice-select-dropdown" onchange="window.updateVoiceChoice(this.value)" class="w-full p-2 bg-[#0A0C14] border border-white/10 rounded-xl text-xs text-white outline-none focus:border-[#6655D9]">
+                <option value="0">Default Operating System Voice</option>
+              </select>
+            </div>
+
+            <div class="flex items-center gap-2 pt-4">
+              <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer">
+                <input type="checkbox" id="check-auto-speak" onchange="window.toggleAutoSpeak(this.checked)" checked class="accent-[#6655D9] rounded">
+                <span>Auto-speak question aloud when advancing to next question</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- Question Prompt Card (DYNAMIC NON-REPEATING QUESTION) -->
@@ -1782,6 +2074,152 @@
           Close Report
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- 5. Course Track Checkout & Invoice Modal -->
+  <div id="course-checkout-modal" class="fixed inset-0 z-50 hidden bg-[#0A0C14]/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+    <div class="glass-dark rounded-3xl max-w-lg w-full p-6 border border-white/15 shadow-2xl space-y-4 my-8">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div>
+          <span id="checkout-modal-tag" class="text-[10px] font-bold text-[#A99AF5] uppercase tracking-wider">Course Track Enrollment</span>
+          <h3 id="checkout-modal-title" class="text-base font-bold text-white">Enroll in Career Track</h3>
+        </div>
+        <button type="button" onclick="window.closeModal('course-checkout-modal')" class="text-[#94A3B8] hover:text-white p-1 cursor-pointer text-sm">✕</button>
+      </div>
+
+      <!-- STEP A: Checkout Form -->
+      <div id="checkout-form-step" class="space-y-4 text-xs">
+        
+        <!-- Track Summary -->
+        <div class="p-4 rounded-2xl bg-[#0A0C14] border border-white/10 flex items-center justify-between">
+          <div>
+            <h4 id="checkout-track-title" class="text-sm font-bold text-white">Full-Stack & Cloud Architecture</h4>
+            <p id="checkout-track-sub" class="text-[11px] text-[#94A3B8]">Includes 50+ Mocks & Voice Modulation</p>
+          </div>
+          <div class="text-right">
+            <span id="checkout-track-price" class="text-lg font-black text-white">$59</span>
+            <span id="checkout-track-cycle" class="text-[10px] text-[#94A3B8] block">/ month</span>
+          </div>
+        </div>
+
+        <!-- Coupon Input -->
+        <div class="space-y-1.5">
+          <label class="block text-xs font-semibold text-gray-300">Promo / Discount Code:</label>
+          <div class="flex gap-2">
+            <input type="text" id="checkout-coupon-input" placeholder="e.g. IQ20 or FAANG50" class="flex-1 p-2.5 bg-[#0A0C14] border border-white/10 rounded-xl text-xs text-white uppercase tracking-wider outline-none focus:border-[#6655D9]">
+            <button type="button" onclick="window.applyCheckoutCoupon()" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl cursor-pointer">
+              Apply
+            </button>
+          </div>
+          <p id="checkout-coupon-msg" class="text-[11px] font-semibold hidden"></p>
+        </div>
+
+        <!-- Revenue Price Breakdown -->
+        <div class="p-3.5 rounded-2xl bg-[#0A0C14] border border-white/10 space-y-2">
+          <div class="flex justify-between text-[#94A3B8]">
+            <span>Base Course Track Price:</span>
+            <span id="calc-base-price" class="text-white font-mono">$59</span>
+          </div>
+          <div id="calc-discount-row" class="hidden flex justify-between text-emerald-400 font-semibold">
+            <span>Promo Discount Applied:</span>
+            <span id="calc-discount-amount" class="font-mono">-$0</span>
+          </div>
+          <div class="flex justify-between text-[#94A3B8]">
+            <span>Standard Processing & Tax (18%):</span>
+            <span id="calc-tax-price" class="text-white font-mono">$10.62</span>
+          </div>
+          <div class="pt-2 border-t border-white/10 flex justify-between text-sm font-black text-white">
+            <span>Total Payable:</span>
+            <span id="calc-total-price" class="text-emerald-400 font-mono text-base">$69.62</span>
+          </div>
+        </div>
+
+        <!-- Payment Method Selection -->
+        <div class="space-y-1.5">
+          <label class="block text-xs font-semibold text-gray-300">Payment Channel:</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="p-2.5 rounded-xl border border-[#6655D9] bg-[#6655D9]/20 flex flex-col items-center justify-center text-center cursor-pointer">
+              <input type="radio" name="chk-pay-method" value="card" checked class="hidden">
+              <span class="text-xs font-bold text-white">💳 Card / Visa</span>
+            </label>
+            <label class="p-2.5 rounded-xl border border-white/10 bg-[#0A0C14] hover:bg-white/5 flex flex-col items-center justify-center text-center cursor-pointer">
+              <input type="radio" name="chk-pay-method" value="upi" class="hidden">
+              <span class="text-xs font-bold text-gray-300">⚡ UPI / GPay</span>
+            </label>
+            <label class="p-2.5 rounded-xl border border-white/10 bg-[#0A0C14] hover:bg-white/5 flex flex-col items-center justify-center text-center cursor-pointer">
+              <input type="radio" name="chk-pay-method" value="demo" class="hidden">
+              <span class="text-xs font-bold text-gray-300">✨ 1-Click Demo</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
+          <button type="button" onclick="window.closeModal('course-checkout-modal')" class="px-4 py-2 text-xs rounded-xl border border-white/10 text-[#94A3B8] hover:text-white cursor-pointer">
+            Cancel
+          </button>
+          <button type="button" onclick="window.processMockPayment()" id="btn-confirm-checkout" class="px-6 py-2 text-xs font-bold rounded-xl bg-[#6655D9] text-white hover:bg-[#5542C6] transition-all shadow-button cursor-pointer flex items-center gap-1.5 active:scale-95">
+            <span>Confirm & Complete Enrollment</span>
+            <span>🛡️</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- STEP B: Official Digital Invoice & Receipt (Shown after payment) -->
+      <div id="checkout-invoice-step" class="hidden space-y-4 text-xs">
+        
+        <div class="p-5 rounded-2xl bg-[#0A0C14] border border-emerald-500/40 space-y-3">
+          <div class="flex justify-between items-center pb-3 border-b border-white/10">
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">Payment Verified</span>
+              <h4 class="text-sm font-black text-white">InterviewIQ Course Tax Invoice</h4>
+              <p id="inv-txn-id" class="text-[10px] text-[#94A3B8] font-mono">TXN-8942-VERIFIED</p>
+            </div>
+            <div class="text-right">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                PAID
+              </span>
+              <p id="inv-num" class="text-[11px] font-mono text-gray-300 mt-1">INV-2026-9182</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-[11px]">
+            <div>
+              <span class="text-[#94A3B8] block">Candidate:</span>
+              <strong id="inv-cand-name" class="text-white">Aarav Sharma</strong>
+              <p id="inv-cand-email" class="text-[#94A3B8]">student@example.com</p>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Issue Date:</span>
+              <strong id="inv-date" class="text-white">Today</strong>
+              <p class="text-[#94A3B8]">Immediate Activation</p>
+            </div>
+          </div>
+
+          <!-- Line Item -->
+          <div class="p-3 rounded-xl bg-[#161B2E] border border-white/5 space-y-1.5 text-[11px]">
+            <div class="flex justify-between font-bold text-white pb-1 border-b border-white/10">
+              <span id="inv-line-item">Full-Stack Cloud Track (Monthly)</span>
+              <span id="inv-line-total" class="font-mono text-emerald-400">$69.62</span>
+            </div>
+            <p class="text-[#94A3B8]">Includes 50+ Non-repeating question bank, voice modulation presets, and STAR rubrics.</p>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pt-2 border-t border-white/10">
+          <button type="button" onclick="window.downloadInvoicePDF()" class="px-4 py-2 text-xs font-semibold rounded-xl bg-white/10 hover:bg-white/20 text-white cursor-pointer">
+            Download Invoice (PDF)
+          </button>
+          <button type="button" onclick="window.enterChamberFromInvoice()" class="px-5 py-2 text-xs font-bold rounded-xl bg-[#6655D9] text-white hover:bg-[#5542C6] transition-all shadow-button cursor-pointer">
+            Enter Mock Chamber →
+          </button>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
@@ -2720,6 +3158,15 @@
 
       var evalCard = document.getElementById('evaluation-card');
       if (evalCard) evalCard.classList.add('hidden');
+
+      if (typeof window.syncMockRoomTrackBadge === 'function') {
+        window.syncMockRoomTrackBadge();
+      }
+      if (typeof voiceSettings !== 'undefined' && voiceSettings.autoSpeak && 'speechSynthesis' in window) {
+        setTimeout(function() {
+          window.speakQuestion();
+        }, 300);
+      }
     };
 
     window.nextQuestion = function() {
@@ -3066,18 +3513,647 @@
       }
     };
 
+    // ==============================================================
+    // 8. VOICE MODULATION & CAREER TRACKS REVENUE SYSTEM
+    // ==============================================================
+
+    // COURSE TRACKS CATALOG & DYNAMIC REVENUE PRICING
+    var COURSE_CATALOG = [
+      {
+        id: 'campus',
+        title: 'Campus Placement & Core DSA',
+        badge: 'Starter Tier',
+        badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+        subtitle: 'For University Students & Fresh Grads',
+        description: 'Master core algorithmic problem solving, trees, graphs, DBMS, OOP fundamentals, and campus behavioral interviews.',
+        priceUsdMonthly: 29,
+        priceUsdAnnual: 249,
+        priceInrMonthly: 1999,
+        priceInrAnnual: 16999,
+        savingsAnnual: '28% Savings',
+        features: [
+          '25+ Algorithmic & Core CS Mock Sessions',
+          'Non-repeating Data Structures & System basics',
+          'Real-time STAR Behavioral Grills',
+          'Dual Voice Modulation (HR & Tech Personas)',
+          'Campus Resume & ATS Keyword Benchmark',
+          'Verifiable Certificate of Readiness'
+        ],
+        recommended: false,
+        icon: '🎓'
+      },
+      {
+        id: 'fullstack',
+        title: 'Full-Stack & Cloud Architecture',
+        badge: 'Most Popular 🔥',
+        badgeColor: 'bg-[#6655D9]/20 text-[#A99AF5] border-[#6655D9]/40',
+        subtitle: 'For Modern Web & Cloud Engineers (1-4 yrs)',
+        description: 'Designed for engineers targeting mid-level full-stack roles: React, Node.js, Microservices, System Design, and CI/CD pipelines.',
+        priceUsdMonthly: 59,
+        priceUsdAnnual: 499,
+        priceInrMonthly: 3999,
+        priceInrAnnual: 34999,
+        savingsAnnual: '30% Savings',
+        features: [
+          '50+ Full-Stack, React, Node.js & Microservice Mocks',
+          'System Design Interactive Architecture Sandboxes',
+          'Full Voice Modulation Suite (Pitch, Speed, 5 Personas)',
+          'Automated Rubric Scoring with Code Quality Inspection',
+          'Equalizer Audio Visualizer & Real-time Feedback',
+          'Priority Fast-Track to TechPulse & Partner ATS'
+        ],
+        recommended: true,
+        icon: '⚡'
+      },
+      {
+        id: 'senior-faang',
+        title: 'Senior FAANG & Distributed Systems Elite',
+        badge: 'Best Value ⚡',
+        badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+        subtitle: 'For L5/L6 Staff Engineers & Big Tech Aspirants',
+        description: 'High-concurrency distributed systems, Raft consensus, Kafka pipelines, Hard LeetCode patterns, and Amazon Leadership Principles.',
+        priceUsdMonthly: 99,
+        priceUsdAnnual: 849,
+        priceInrMonthly: 6999,
+        priceInrAnnual: 59999,
+        savingsAnnual: '29% Savings',
+        features: [
+          '100+ High-Throughput & Distributed Systems Mocks',
+          'Strict FAANG Griller & Principal Architect Personas',
+          'Amazon 16 Leadership Principles & Bar Raiser Drills',
+          'In-depth Trade-off, Latency Profiling & CAP Rubrics',
+          'Full Voice Modulation Fine-Tuning + Equalizer',
+          '1-on-1 Async Review by Ex-FAANG Staff Engineers'
+        ],
+        recommended: false,
+        icon: '💎'
+      },
+      {
+        id: 'ai-ml',
+        title: 'Applied AI, LLMs & ML Systems',
+        badge: 'Specialized Tier',
+        badgeColor: 'bg-cyan-500/20 text-[#38BDF8] border-cyan-500/40',
+        subtitle: 'For Generative AI & ML Platform Engineers',
+        description: 'Prepare for high-demand AI roles: RAG pipelines, Vector DB indexing, LLM fine-tuning, Agent orchestration, and Model serving.',
+        priceUsdMonthly: 129,
+        priceUsdAnnual: 1099,
+        priceInrMonthly: 8999,
+        priceInrAnnual: 74999,
+        savingsAnnual: '29% Savings',
+        features: [
+          '40+ RAG Architecture & Vector DB Interview Scenarios',
+          'AI Agent Orchestration & Tool-Calling Chambers',
+          'Latency, Token Economics & GPU Optimization Rubrics',
+          'Synthetic Neural AI Interviewer Voice Modulation',
+          'Production ML Pipeline Case Study Frameworks',
+          'Verified AI Systems Architecture Credential'
+        ],
+        recommended: false,
+        icon: '🤖'
+      },
+      {
+        id: 'tech-lead',
+        title: 'Engineering Management & Tech Lead',
+        badge: 'Executive Tier',
+        badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+        subtitle: 'For Team Leads, EMs & Engineering Directors',
+        description: 'Master senior management rounds: Cross-functional leadership, incident post-mortems, team scaling, tech debt prioritization, and OKRs.',
+        priceUsdMonthly: 149,
+        priceUsdAnnual: 1299,
+        priceInrMonthly: 9999,
+        priceInrAnnual: 89999,
+        savingsAnnual: '28% Savings',
+        features: [
+          '35+ Executive 360°, Conflict Resolution & Hiring Mocks',
+          'Cross-Functional Stakeholder Communication Drills',
+          'Incident Post-Mortem & Blameless Culture Rubrics',
+          'Executive HR Director & Founder Voice Modulation',
+          'Strategic Tech Debt & Roadmap Trade-Off Scenarios',
+          'Direct Recruiter Screening Network Access'
+        ],
+        recommended: false,
+        icon: '👑'
+      }
+    ];
+
+    var pricingCurrency = 'USD';
+    var pricingBilling = 'monthly';
+    var activeTrackId = 'fullstack';
+    var checkoutSelectedTrack = null;
+    var checkoutDiscountPercent = 0;
+
+    window.getActiveTrack = function() {
+      var saved = localStorage.getItem('interviewiq_active_track');
+      if (saved) {
+        try { return JSON.parse(saved); } catch (e) {}
+      }
+      return COURSE_CATALOG[1]; // Full-Stack default
+    };
+
+    window.setPricingCurrency = function(curr) {
+      pricingCurrency = curr;
+      var btnUsd = document.getElementById('btn-curr-usd');
+      var btnInr = document.getElementById('btn-curr-inr');
+      if (curr === 'USD') {
+        if (btnUsd) btnUsd.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#6655D9] text-white transition-all cursor-pointer shadow-button';
+        if (btnInr) btnInr.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#94A3B8] hover:text-white transition-all cursor-pointer';
+      } else {
+        if (btnInr) btnInr.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#6655D9] text-white transition-all cursor-pointer shadow-button';
+        if (btnUsd) btnUsd.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#94A3B8] hover:text-white transition-all cursor-pointer';
+      }
+      renderCoursePricingCards();
+      window.showToast('Currency updated to ' + curr, 'info');
+    };
+
+    window.setPricingBilling = function(cycle) {
+      pricingBilling = cycle;
+      var btnMon = document.getElementById('btn-billing-monthly');
+      var btnAnn = document.getElementById('btn-billing-annual');
+      if (cycle === 'monthly') {
+        if (btnMon) btnMon.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#6655D9] text-white transition-all cursor-pointer shadow-button';
+        if (btnAnn) btnAnn.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#94A3B8] hover:text-white transition-all cursor-pointer flex items-center gap-1.5';
+      } else {
+        if (btnAnn) btnAnn.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#6655D9] text-white transition-all cursor-pointer shadow-button flex items-center gap-1.5';
+        if (btnMon) btnMon.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#94A3B8] hover:text-white transition-all cursor-pointer';
+      }
+      renderCoursePricingCards();
+      window.showToast('Billing cycle updated to ' + cycle, 'info');
+    };
+
+    function renderCoursePricingCards() {
+      var container = document.getElementById('course-tracks-grid');
+      if (!container) return;
+
+      var activeTrack = window.getActiveTrack();
+      var symbol = pricingCurrency === 'USD' ? '$' : '₹';
+
+      container.innerHTML = COURSE_CATALOG.map(function(track) {
+        var isCurrent = activeTrack.id === track.id;
+        var price = pricingCurrency === 'USD'
+          ? (pricingBilling === 'monthly' ? track.priceUsdMonthly : track.priceUsdAnnual)
+          : (pricingBilling === 'monthly' ? track.priceInrMonthly : track.priceInrAnnual);
+
+        var cardClass = track.recommended
+          ? 'relative rounded-3xl p-6 flex flex-col justify-between bg-gradient-to-b from-[#1C173B] to-[#121424] border-2 border-[#6655D9] shadow-2xl shadow-[#6655D9]/20 transition-all'
+          : 'glass-card rounded-3xl p-6 flex flex-col justify-between border border-white/10 hover:border-white/20 transition-all';
+
+        var featuresHtml = track.features.map(function(f) {
+          return '<li class="flex items-start gap-2 text-xs text-gray-300"><span class="text-emerald-400 font-bold">✓</span><span>' + f + '</span></li>';
+        }).join('');
+
+        var actionBtn = isCurrent
+          ? '<button type="button" disabled class="w-full py-3 px-4 rounded-xl text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 cursor-default flex items-center justify-center gap-2"><span>✓ Currently Active Track</span></button>'
+          : '<button type="button" onclick="window.openCourseCheckout(\'' + track.id + '\')" class="w-full py-3 px-4 rounded-xl text-xs font-bold ' + (track.recommended ? 'bg-[#6655D9] hover:bg-[#5542C6] text-white' : 'bg-white/10 hover:bg-white/20 text-white border border-white/15') + ' transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-button active:scale-95"><span>Enroll in Track →</span></button>';
+
+        return '<div class="' + cardClass + '">' +
+          '<div class="space-y-4">' +
+            '<div class="flex items-center justify-between">' +
+              '<span class="text-2xl">' + track.icon + '</span>' +
+              '<span class="px-2.5 py-1 rounded-full text-[11px] font-bold border ' + track.badgeColor + '">' + track.badge + '</span>' +
+            '</div>' +
+            '<div>' +
+              '<h3 class="text-lg font-black text-white leading-tight">' + track.title + '</h3>' +
+              '<p class="text-xs text-[#94A3B8] mt-1">' + track.subtitle + '</p>' +
+            '</div>' +
+            '<div class="py-3 border-y border-white/10">' +
+              '<div class="flex items-baseline gap-1">' +
+                '<span class="text-3xl font-black text-white">' + symbol + price.toLocaleString() + '</span>' +
+                '<span class="text-xs text-[#94A3B8] font-semibold">/ ' + (pricingBilling === 'monthly' ? 'month' : 'year') + '</span>' +
+              '</div>' +
+              (pricingBilling === 'annual' ? '<p class="text-[11px] text-emerald-400 font-semibold mt-1">Billed annually (' + track.savingsAnnual + ')</p>' : '') +
+            '</div>' +
+            '<p class="text-xs text-gray-300 leading-relaxed">' + track.description + '</p>' +
+            '<div class="space-y-2 pt-2">' +
+              '<span class="text-[11px] font-bold text-[#A99AF5] uppercase tracking-wider block">Curriculum Features:</span>' +
+              '<ul class="space-y-2">' + featuresHtml + '</ul>' +
+            '</div>' +
+          '</div>' +
+          '<div class="pt-6 mt-6 border-t border-white/10">' + actionBtn + '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    window.openCourseCheckout = function(trackId) {
+      var track = COURSE_CATALOG.find(function(t) { return t.id === trackId; });
+      if (!track) return;
+
+      checkoutSelectedTrack = track;
+      checkoutDiscountPercent = 0;
+
+      var stepForm = document.getElementById('checkout-form-step');
+      var stepInv = document.getElementById('checkout-invoice-step');
+      if (stepForm) stepForm.classList.remove('hidden');
+      if (stepInv) stepInv.classList.add('hidden');
+
+      var titleElem = document.getElementById('checkout-track-title');
+      if (titleElem) titleElem.innerText = track.title;
+
+      var subElem = document.getElementById('checkout-track-sub');
+      if (subElem) subElem.innerText = track.subtitle;
+
+      var couponInput = document.getElementById('checkout-coupon-input');
+      if (couponInput) couponInput.value = '';
+
+      var couponMsg = document.getElementById('checkout-coupon-msg');
+      if (couponMsg) {
+        couponMsg.innerText = '';
+        couponMsg.classList.add('hidden');
+      }
+
+      window.recalculateCheckoutTotals();
+
+      var modal = document.getElementById('course-checkout-modal');
+      if (modal) modal.classList.remove('hidden');
+    };
+
+    window.recalculateCheckoutTotals = function() {
+      if (!checkoutSelectedTrack) return;
+      var track = checkoutSelectedTrack;
+      var symbol = pricingCurrency === 'USD' ? '$' : '₹';
+      var basePrice = pricingCurrency === 'USD'
+        ? (pricingBilling === 'monthly' ? track.priceUsdMonthly : track.priceUsdAnnual)
+        : (pricingBilling === 'monthly' ? track.priceInrMonthly : track.priceInrAnnual);
+
+      var discountAmount = Math.round((basePrice * checkoutDiscountPercent) / 100);
+      var afterDiscount = basePrice - discountAmount;
+      var tax = Math.round(afterDiscount * 0.18);
+      var total = afterDiscount + tax;
+
+      var priceElem = document.getElementById('checkout-track-price');
+      if (priceElem) priceElem.innerText = symbol + basePrice.toLocaleString();
+
+      var cycleElem = document.getElementById('checkout-track-cycle');
+      if (cycleElem) cycleElem.innerText = '/ ' + pricingBilling;
+
+      var baseElem = document.getElementById('calc-base-price');
+      if (baseElem) baseElem.innerText = symbol + basePrice.toLocaleString();
+
+      var discRow = document.getElementById('calc-discount-row');
+      var discElem = document.getElementById('calc-discount-amount');
+      if (discRow && discElem) {
+        if (discountAmount > 0) {
+          discElem.innerText = '-' + symbol + discountAmount.toLocaleString();
+          discRow.classList.remove('hidden');
+        } else {
+          discRow.classList.add('hidden');
+        }
+      }
+
+      var taxElem = document.getElementById('calc-tax-price');
+      if (taxElem) taxElem.innerText = symbol + tax.toLocaleString();
+
+      var totalElem = document.getElementById('calc-total-price');
+      if (totalElem) totalElem.innerText = symbol + total.toLocaleString();
+    };
+
+    window.applyCheckoutCoupon = function() {
+      var input = document.getElementById('checkout-coupon-input');
+      var code = input ? input.value.trim().toUpperCase() : '';
+      var msg = document.getElementById('checkout-coupon-msg');
+
+      if (code === 'IQ20') {
+        checkoutDiscountPercent = 20;
+        if (msg) {
+          msg.innerText = '🎉 20% Discount applied with promo code IQ20!';
+          msg.className = 'text-[11px] font-semibold text-emerald-400';
+          msg.classList.remove('hidden');
+        }
+        window.showToast('Coupon IQ20 applied: 20% discount!', 'success');
+      } else if (code === 'FAANG50') {
+        checkoutDiscountPercent = 50;
+        if (msg) {
+          msg.innerText = '🚀 50% Special launch discount applied with code FAANG50!';
+          msg.className = 'text-[11px] font-semibold text-emerald-400';
+          msg.classList.remove('hidden');
+        }
+        window.showToast('Super coupon FAANG50 applied: 50% discount!', 'success');
+      } else {
+        checkoutDiscountPercent = 0;
+        if (msg) {
+          msg.innerText = '❌ Invalid code. Try promo code IQ20 or FAANG50.';
+          msg.className = 'text-[11px] font-semibold text-rose-400';
+          msg.classList.remove('hidden');
+        }
+        window.showToast('Invalid coupon code.', 'warning');
+      }
+      window.recalculateCheckoutTotals();
+    };
+
+    window.processMockPayment = function() {
+      if (!checkoutSelectedTrack) return;
+      var track = checkoutSelectedTrack;
+      var btn = document.getElementById('btn-confirm-checkout');
+      if (btn) btn.innerText = 'Processing Enrollment...';
+
+      setTimeout(function() {
+        if (btn) btn.innerText = 'Confirm & Complete Enrollment 🛡️';
+
+        var user = getStoredUser() || { name: 'Aarav Sharma', email: 'student@example.com' };
+        var symbol = pricingCurrency === 'USD' ? '$' : '₹';
+        var basePrice = pricingCurrency === 'USD'
+          ? (pricingBilling === 'monthly' ? track.priceUsdMonthly : track.priceUsdAnnual)
+          : (pricingBilling === 'monthly' ? track.priceInrMonthly : track.priceInrAnnual);
+        var discountAmount = Math.round((basePrice * checkoutDiscountPercent) / 100);
+        var total = (basePrice - discountAmount) + Math.round((basePrice - discountAmount) * 0.18);
+
+        var invoice = {
+          invoiceNumber: 'INV-2026-' + Math.floor(1000 + Math.random() * 9000),
+          txnId: 'TXN-' + Math.random().toString(36).substring(2, 8).toUpperCase() + '-VERIFIED',
+          date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+          candidateName: user.name || 'Aarav Sharma',
+          candidateEmail: user.email || 'student@example.com',
+          courseTitle: track.title,
+          trackId: track.id,
+          billingCycle: pricingBilling,
+          currency: pricingCurrency,
+          currencySymbol: symbol,
+          totalPaid: symbol + total.toLocaleString(),
+          status: 'PAID'
+        };
+
+        // Persist enrollment in localStorage
+        localStorage.setItem('interviewiq_active_track', JSON.stringify(track));
+        localStorage.setItem('interviewiq_latest_invoice', JSON.stringify(invoice));
+
+        // Update stored user
+        user.enrolledTrack = track.title;
+        user.trackId = track.id;
+        setStoredUser(user);
+
+        // Populate invoice view
+        document.getElementById('inv-txn-id').innerText = invoice.txnId;
+        document.getElementById('inv-num').innerText = invoice.invoiceNumber;
+        document.getElementById('inv-cand-name').innerText = invoice.candidateName;
+        document.getElementById('inv-cand-email').innerText = invoice.candidateEmail;
+        document.getElementById('inv-date').innerText = invoice.date;
+        document.getElementById('inv-line-item').innerText = track.title + ' (' + pricingBilling + ')';
+        document.getElementById('inv-line-total').innerText = invoice.totalPaid;
+
+        // Switch modal view to invoice
+        document.getElementById('checkout-form-step').classList.add('hidden');
+        document.getElementById('checkout-invoice-step').classList.remove('hidden');
+
+        // Update badges across UI
+        window.syncActiveTrackAcrossUI();
+        window.renderCoursePricingCards();
+
+        window.showToast('🎉 Successfully enrolled in ' + track.title + '!', 'success');
+      }, 1000);
+    };
+
+    window.downloadInvoicePDF = function() {
+      window.showToast('Digital Invoice saved to downloads!', 'success');
+    };
+
+    window.enterChamberFromInvoice = function() {
+      window.closeModal('course-checkout-modal');
+      window.openMockWithCategory('Technical');
+    };
+
+    window.syncActiveTrackAcrossUI = function() {
+      var track = window.getActiveTrack();
+      var symbol = pricingCurrency === 'USD' ? '$' : '₹';
+      var price = pricingCurrency === 'USD' ? track.priceUsdMonthly : track.priceInrMonthly;
+
+      var overviewName = document.getElementById('overview-enrolled-track-name');
+      if (overviewName) overviewName.innerText = track.title;
+
+      var overviewBadge = document.getElementById('overview-enrolled-badge');
+      if (overviewBadge) overviewBadge.innerText = '● Enrolled & Active (' + symbol + price + '/mo)';
+
+      window.syncMockRoomTrackBadge();
+    };
+
+    window.syncMockRoomTrackBadge = function() {
+      var track = window.getActiveTrack();
+      var symbol = pricingCurrency === 'USD' ? '$' : '₹';
+      var price = pricingCurrency === 'USD' ? track.priceUsdMonthly : track.priceInrMonthly;
+
+      var mockName = document.getElementById('mock-track-name');
+      if (mockName) mockName.innerText = track.title.split(' ')[0] + ' Track';
+
+      var mockPrice = document.getElementById('mock-track-price');
+      if (mockPrice) mockPrice.innerText = '(' + symbol + price + '/mo)';
+    };
+
+    // ==============================================================
+    // VOICE MODULATION ENGINE (PITCH, RATE, VOLUME, PERSONAS)
+    // ==============================================================
+    var VOICE_PERSONAS = {
+      faang: {
+        id: 'faang',
+        name: '👔 FAANG Architect',
+        pitch: 0.85,
+        rate: 1.05,
+        desc: 'Deep, authoritative & measured pace'
+      },
+      startup: {
+        id: 'startup',
+        name: '🚀 Startup CTO',
+        pitch: 1.10,
+        rate: 1.20,
+        desc: 'Fast, energetic & sharp'
+      },
+      hr: {
+        id: 'hr',
+        name: '🌸 HR Director',
+        pitch: 1.15,
+        rate: 0.95,
+        desc: 'Warm, empathetic & articulated'
+      },
+      griller: {
+        id: 'griller',
+        name: '⚡ Strict Griller',
+        pitch: 0.70,
+        rate: 1.15,
+        desc: 'Low register, intense & uncompromising'
+      },
+      neutral: {
+        id: 'neutral',
+        name: '🤖 AI Neutral',
+        pitch: 1.00,
+        rate: 1.00,
+        desc: 'Balanced studio benchmark'
+      }
+    };
+
+    var voiceSettings = {
+      persona: 'faang',
+      pitch: 0.85,
+      rate: 1.05,
+      volume: 1.0,
+      voiceIndex: 0,
+      autoSpeak: true
+    };
+
+    var availableVoices = [];
+
+    window.populateVoiceList = function() {
+      if (!('speechSynthesis' in window)) return;
+      availableVoices = window.speechSynthesis.getVoices();
+      var select = document.getElementById('voice-select-dropdown');
+      if (!select) return;
+
+      select.innerHTML = '';
+      if (availableVoices.length === 0) {
+        select.innerHTML = '<option value="0">Default Operating System Voice</option>';
+        return;
+      }
+
+      availableVoices.forEach(function(v, idx) {
+        var opt = document.createElement('option');
+        opt.value = idx;
+        opt.textContent = v.name + ' (' + v.lang + ')';
+        select.appendChild(opt);
+      });
+    };
+
+    window.setVoicePersona = function(personaKey) {
+      var p = VOICE_PERSONAS[personaKey];
+      if (!p) return;
+
+      voiceSettings.persona = personaKey;
+      voiceSettings.pitch = p.pitch;
+      voiceSettings.rate = p.rate;
+
+      // Update Slider Elements
+      var sliderPitch = document.getElementById('slider-pitch');
+      if (sliderPitch) sliderPitch.value = p.pitch;
+      var valPitch = document.getElementById('val-pitch-display');
+      if (valPitch) valPitch.innerText = p.pitch.toFixed(2) + 'x';
+
+      var sliderRate = document.getElementById('slider-rate');
+      if (sliderRate) sliderRate.value = p.rate;
+      var valRate = document.getElementById('val-rate-display');
+      if (valRate) valRate.innerText = p.rate.toFixed(2) + 'x';
+
+      // Update Persona Pills
+      ['faang', 'startup', 'hr', 'griller', 'neutral'].forEach(function(k) {
+        var pill = document.getElementById('voice-pill-' + k);
+        if (!pill) return;
+        if (k === personaKey) {
+          pill.className = 'p-2 rounded-xl text-left text-xs font-bold transition-all cursor-pointer bg-[#6655D9] text-white shadow-button';
+        } else {
+          pill.className = 'p-2 rounded-xl text-left text-xs font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer';
+        }
+      });
+
+      var descElem = document.getElementById('voice-active-desc');
+      if (descElem) {
+        descElem.innerText = 'Persona: ' + p.name + ' • Pitch: ' + p.pitch.toFixed(2) + 'x • Speed: ' + p.rate.toFixed(2) + 'x';
+      }
+
+      window.showToast('Voice modulated to ' + p.name, 'info');
+    };
+
+    window.updateVoicePitch = function(val) {
+      voiceSettings.pitch = parseFloat(val);
+      var display = document.getElementById('val-pitch-display');
+      if (display) display.innerText = parseFloat(val).toFixed(2) + 'x';
+    };
+
+    window.updateVoiceRate = function(val) {
+      voiceSettings.rate = parseFloat(val);
+      var display = document.getElementById('val-rate-display');
+      if (display) display.innerText = parseFloat(val).toFixed(2) + 'x';
+    };
+
+    window.updateVoiceVolume = function(val) {
+      voiceSettings.volume = parseFloat(val);
+      var display = document.getElementById('val-vol-display');
+      if (display) display.innerText = Math.round(parseFloat(val) * 100) + '%';
+    };
+
+    window.updateVoiceChoice = function(val) {
+      voiceSettings.voiceIndex = parseInt(val);
+    };
+
+    window.toggleAutoSpeak = function(checked) {
+      voiceSettings.autoSpeak = Boolean(checked);
+      window.showToast('Auto-speak ' + (voiceSettings.autoSpeak ? 'enabled' : 'disabled'), 'info');
+    };
+
+    window.toggleModulationDrawer = function() {
+      var drawer = document.getElementById('voice-modulation-drawer');
+      var arrow = document.getElementById('drawer-toggle-arrow');
+      if (!drawer) return;
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        if (arrow) arrow.innerText = '▲';
+      } else {
+        drawer.classList.add('hidden');
+        if (arrow) arrow.innerText = '▼';
+      }
+    };
+
+    window.setVoiceSpeakingState = function(isSpeaking) {
+      var pill = document.getElementById('voice-status-pill');
+      var wave = document.getElementById('voice-wave-container');
+      if (isSpeaking) {
+        if (pill) {
+          pill.innerText = 'Speaking Aloud';
+          pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 animate-pulse';
+        }
+        if (wave) wave.classList.add('wave-active');
+      } else {
+        if (pill) {
+          pill.innerText = 'Ready to Speak';
+          pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/10 text-gray-400';
+        }
+        if (wave) wave.classList.remove('wave-active');
+      }
+    };
+
+    window.speakText = function(text, onStart, onEnd) {
+      if (!('speechSynthesis' in window)) {
+        window.showToast('Text-to-speech not supported on this browser.', 'warning');
+        return;
+      }
+      window.speechSynthesis.cancel();
+
+      var utterance = new SpeechSynthesisUtterance(text);
+      utterance.pitch = voiceSettings.pitch;
+      utterance.rate = voiceSettings.rate;
+      utterance.volume = voiceSettings.volume;
+
+      if (availableVoices && availableVoices[voiceSettings.voiceIndex]) {
+        utterance.voice = availableVoices[voiceSettings.voiceIndex];
+      }
+
+      utterance.onstart = function() {
+        window.setVoiceSpeakingState(true);
+        if (onStart) onStart();
+      };
+      utterance.onend = function() {
+        window.setVoiceSpeakingState(false);
+        if (onEnd) onEnd();
+      };
+      utterance.onerror = function() {
+        window.setVoiceSpeakingState(false);
+      };
+
+      window.speechSynthesis.speak(utterance);
+    };
+
     window.speakQuestion = function() {
+      var questionElem = document.getElementById('mock-question-text');
+      var text = questionElem ? questionElem.innerText.replace(/"/g, '') : "Please explain your technical approach.";
+      window.speakText(text);
+      window.showToast('AI interviewer speaking question with ' + VOICE_PERSONAS[voiceSettings.persona].name + ' modulation...', 'info');
+    };
+
+    window.testVoiceModulation = function() {
+      var p = VOICE_PERSONAS[voiceSettings.persona];
+      var text = "Hello! I am your " + p.name + " interviewer. Your voice modulation settings are active with pitch " + voiceSettings.pitch.toFixed(2) + "x and rate " + voiceSettings.rate.toFixed(2) + "x.";
+      window.speakText(text);
+    };
+
+    window.stopSpeaking = function() {
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        var questionElem = document.getElementById('mock-question-text');
-        var text = questionElem ? questionElem.innerText : "Please answer the interview question.";
-        var utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 1.0;
-        window.speechSynthesis.speak(utterance);
-        window.showToast('AI interviewer speaking question aloud...', 'info');
-      } else {
-        window.showToast('Text-to-speech not supported on this browser.', 'warning');
       }
+      window.setVoiceSpeakingState(false);
+      window.showToast('AI interviewer voice stopped.', 'info');
     };
 
     // ==============================================================
@@ -3087,6 +4163,13 @@
       updateNavAuthState();
       syncWelcomePageActiveState();
       renderCompanyInterviews();
+      renderCoursePricingCards();
+      syncActiveTrackAcrossUI();
+
+      if ('speechSynthesis' in window) {
+        window.populateVoiceList();
+        window.speechSynthesis.onvoiceschanged = window.populateVoiceList;
+      }
 
       var user = getStoredUser();
       if (user && user.role === 'student') {

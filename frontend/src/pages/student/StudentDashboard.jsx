@@ -139,6 +139,34 @@ export const StudentDashboard = () => {
           </div>
         </div>
 
+        {/* Active Enrolled Track & Revenue Tier */}
+        <div className="p-5 rounded-3xl bg-[#161B2E] border border-[#6655D9]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-2xl bg-[#6655D9]/20 text-[#A99AF5] flex items-center justify-center border border-[#6655D9]/30 text-xl">
+              ⚡
+            </div>
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-sm font-bold text-white">Full-Stack & Cloud Architecture Track</span>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  ● Enrolled & Active ($59/mo)
+                </span>
+              </div>
+              <p className="text-xs text-[#94A3B8] mt-0.5">
+                50+ specialized curriculum mocks, system design sandboxes & AI voice modulation suite included.
+              </p>
+            </div>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => navigate('/student/pricing')}
+            rightIcon={<ArrowRight className="w-4 h-4" />}
+          >
+            Course Tracks & Pricing
+          </Button>
+        </div>
+
         {/* 4 Metric Stats Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <Card className="p-5">

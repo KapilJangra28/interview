@@ -20,6 +20,7 @@ import { InterviewHistory } from './pages/student/InterviewHistory';
 import { InterviewReport } from './pages/student/InterviewReport';
 import { LearningRoadmap } from './pages/student/LearningRoadmap';
 import { StudentProfile } from './pages/student/StudentProfile';
+import { PricingCatalog } from './pages/student/PricingCatalog';
 import { JobBrowse } from './pages/student/JobBrowse';
 import { SavedJobs } from './pages/student/SavedJobs';
 import { ApplicationsList } from './pages/student/ApplicationsList';
@@ -138,6 +139,22 @@ export const App = () => {
         element={
           <ProtectedRoute allowedRoles={['student']}>
             <StudentProfile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/student/pricing"
+        element={
+          <ProtectedRoute allowedRoles={['student']}>
+            <PricingCatalog />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/student/courses"
+        element={
+          <ProtectedRoute allowedRoles={['student']}>
+            <PricingCatalog />
           </ProtectedRoute>
         }
       />
