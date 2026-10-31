@@ -14,7 +14,7 @@ services:
       - key: PORT
         value: 10000
       - key: CLIENT_URL
-        value: https://interview-iq.vercel.app
+        value: https://interviewiq-peach-eight.vercel.app
       - key: ALLOW_ALL_CORS
         value: "true"
       - key: MONGO_URI
